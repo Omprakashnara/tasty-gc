@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #555;
+        }
+        #menu {
+            display: flex;
+            justify-content: space-around;
+        }
+        .category {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Village Tasty Restaurant</h1>
+    <div id="menu">
+        <div class="category" onclick="filterMenu('appetizers')">Appetizers</div>
+        <div class="category" onclick="filterMenu('entrees')">Entrees</div>
+        <div class="category" onclick="filterMenu('desserts')">Desserts</div>
+    </div>
+    <div id="menuItems"></div>
+
+    <script>
+        var menu = {
+            appetizers: ["Bruschetta", "Garlic Bread", "Stuffed Mushrooms"],
+            entrees: ["Spaghetti Bolognese", "Chicken Parmesan", "Vegetable Lasagna"],
+            desserts: ["Tiramisu", "Cannoli", "Gelato"]
+        };
+
+        function filterMenu(category) {
+            var items = menu[category];
+            var menuItemsDiv = document.getElementById('menuItems');
+            menuItemsDiv.innerHTML = '';
+            for (var i = 0; i < items.length; i++) {
+                menuItemsDiv.innerHTML += '<p>' + items[i] + '</p>';
+            }
+        }
+    </script>
+</body>
+</html>
